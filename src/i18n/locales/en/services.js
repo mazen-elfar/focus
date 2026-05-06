@@ -184,7 +184,7 @@ const services = {
                 description: 'Our generator portfolio covers 20 KVA to 3000 KVA for both continuous-duty and backup applications.',
                 features: [
                     { icon: 'check_circle', text: '20-3000 KVA diesel generator coverage' },
-                    { icon: 'check_circle', text: 'ATS and grid synchronization integration' }
+                    { icon: 'check_circle', text: 'ATS, synchronization Panel and all related accessories' }
                 ],
                 metric: { value: '20-3000', unit: 'KVA', label: 'Generator Range' }
             },
