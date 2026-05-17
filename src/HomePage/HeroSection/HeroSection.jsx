@@ -359,7 +359,7 @@ const HeroSection = () => {
 
       {/* Stats bar */}
       <div className="hero-stats-bar" ref={statsRef}>
-        <StatItem value={50} suffix="+" label="Projects Delivered" counted={counted} />
+        <StatItem value={500} suffix="+" label="Projects Delivered" counted={counted} />
         <div className="hero-stats-divider" />
         <StatItem value={6} suffix="+" label="Years of Excellence" counted={counted} />
         <div className="hero-stats-divider" />

@@ -183,7 +183,7 @@ const home = {
         subtitle: 'Verified Performance Metrics',
         title: 'FOCUS T&C at a Glance',
         stats: [
-            { key: 'projects', value: 50, suffix: '+', label: 'Global Projects' },
+            { key: 'projects', value: 500, suffix: '+', label: 'Global Projects' },
             { key: 'years', value: 6, suffix: '+', label: 'Years Experience' },
             { key: 'hours', value: 1, suffix: '.2 GW', label: 'Total Power Delivered' },
             { key: 'partners', value: 99, suffix: '.99%', label: 'Uptime Guarantee' }
