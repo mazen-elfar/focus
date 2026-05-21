@@ -69,13 +69,13 @@ const Footer = () => {
 
             {/* ── Metadata strip ── */}
             <div className="footer-metadata">
-                <div className="footer-metadata-item">
+                {/* <div className="footer-metadata-item">
                     <span className="footer-metadata-label">{t('footer.metadata.headquarters.label')}</span>
                     <span className="footer-metadata-value">
                         🇪🇬 {t('footer.metadata.headquarters.line1')}<br />
                         🇸🇦 {t('footer.metadata.headquarters.line2')}
                     </span>
-                </div>
+                </div> */}
                 
                 <div className="footer-metadata-item">
                     <span className="footer-metadata-label">{t('footer.metadata.hours.label')}</span>
@@ -93,7 +93,7 @@ const Footer = () => {
                     {/* Logo + tagline */}
                     <div className="footer-nav-group footer-brand-group">
                         <Link to="/" className="footer-logo-link">
-                            <img src="/logonobackgroundWhite.svg" alt="Focus" className="footer-logo-img" />
+                            <img src="/imglogowhite.png" alt="Focus" className="footer-logo-img" />
                             <span className="footer-logo-name">FOCUS</span>
                         </Link>
                         <p className="footer-tagline">

@@ -142,14 +142,14 @@
 .footer-logo-link {
     display: flex;
     align-items: center;
-    gap: 10px;
     text-decoration: none;
 }
 
 .footer-logo-img {
-    height: 36px;
-    width: auto;
+    height: 56px;
+    width: 56px;
     filter: brightness(0) invert(1);
+    margin-right: -10px;
 }
 
 .footer-logo-name {

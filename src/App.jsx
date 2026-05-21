@@ -28,11 +28,11 @@ const HomePage = () => {
         <>
 
             <HeroSection />
-            <Section2 />
-            <Section5 />
-            <Section6 />
+            {/* <Section2 /> */}
+            {/* <Section5 /> */}
+            {/* <Section6 /> */}
             <Section7 />
-            <Section3 />
+            {/* <Section3 /> */}
         </>
     );
 };

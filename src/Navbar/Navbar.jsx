@@ -147,7 +147,7 @@ const Navbar = () => {
                     <div className="navbar-logo-icon">
                         <Link to="/" className="navbar-link">
                             <img 
-                                src={isDarkMode ? "/logonobackgroundWhite.png" : "/logonobackground.png"} 
+                                src={isDarkMode ? "/logonobackground.png" : "/logonobackground.png"} 
                                 alt="Focus Trading & Contracting" 
                                 className="navbar-logo-img" 
                             />
