@@ -77,13 +77,15 @@ const HeroSection = () => {
     let running = true;
     let busy = false;
 
-    const cardWidth = 300;
-    const cardHeight = 200;
-    const gap = 40;
-    const numberSize = 50;
+    const isMobile = window.innerWidth < 768;
+    const cardWidth = isMobile ? 220 : 300;
+    const cardHeight = isMobile ? 150 : 200;
+    const gap = isMobile ? 20 : 40;
+    const numberSize = isMobile ? 30 : 50;
     const ease = "sine.inOut";
     let offsetTop = 0;
     let offsetLeft = 0;
+    const progressWidth = isMobile ? 180 : (window.innerWidth < 1100 ? 300 : 500);
 
     const gc = (i) => `#hero-card-${i}`;
     const gcc = (i) => `#hero-card-content-${i}`;
@@ -99,10 +101,18 @@ const HeroSection = () => {
       const dI = detailsEven ? "#hero-details-odd" : "#hero-details-even";
       const { innerHeight: h, innerWidth: w } = window;
 
-      offsetTop = h - 330;
-      offsetLeft = w - 830;
+      if (w >= 1450) {
+        offsetTop = h - 330;
+        offsetLeft = w - 830;
+      } else if (w >= 768) {
+        offsetTop = h * 0.58;
+        offsetLeft = 80;
+      } else {
+        offsetTop = h - 380;
+        offsetLeft = 40;
+      }
 
-      gsap.set("#hero-pagination", { top: offsetTop + 230, left: offsetLeft, y: 200, opacity: 0, zIndex: 60 });
+      gsap.set("#hero-pagination", { top: offsetTop + (isMobile ? 180 : 230), left: offsetLeft, y: 200, opacity: 0, zIndex: 60 });
       gsap.set(gc(active), { x: 0, y: 0, width: w, height: h });
       gsap.set(gcc(active), { x: 0, y: 0, opacity: 0 });
       gsap.set(dA, { opacity: 0, zIndex: 22, x: -200 });
@@ -112,7 +122,7 @@ const HeroSection = () => {
       gsap.set(`${dI} .hero-title-2`, { y: 100 });
       gsap.set(`${dI} .hero-desc`, { y: 50 });
       gsap.set(`${dI} .hero-cta`, { y: 60 });
-      gsap.set(".hero-progress-sub-foreground", { width: 500 * (1 / order.length) * (active + 1) });
+      gsap.set(".hero-progress-sub-foreground", { width: progressWidth * (1 / order.length) * (active + 1) });
 
       rest.forEach((i, idx) => {
         gsap.set(gc(i), { x: offsetLeft + 400 + idx * (cardWidth + gap), y: offsetTop, width: cardWidth, height: cardHeight, zIndex: 30, borderRadius: 10 });
@@ -172,7 +182,7 @@ const HeroSection = () => {
         gsap.to(gcc(active), { y: offsetTop + cardHeight - 10, opacity: 0, duration: 0.3, ease });
         gsap.to(gsi(active), { x: 0, ease });
         gsap.to(gsi(prv), { x: -numberSize, ease });
-        gsap.to(".hero-progress-sub-foreground", { width: 500 * (1 / order.length) * (active + 1), ease });
+        gsap.to(".hero-progress-sub-foreground", { width: progressWidth * (1 / order.length) * (active + 1), ease });
 
         gsap.to(gc(active), {
           x: 0, y: 0, ease,
