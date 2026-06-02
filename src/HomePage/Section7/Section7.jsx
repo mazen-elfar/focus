@@ -106,11 +106,16 @@ const Section7 = () => {
                 }
             );
             
-            // Scroll to sub-cards
+            // Scroll to sub-cards with enhanced smoothness
             gsap.to(window, {
-                duration: 1,
-                scrollTo: { y: subCardsRef.current, offsetY: 100 },
-                ease: "power3.inOut"
+                duration: 1.2,
+                scrollTo: { 
+                    y: subCardsRef.current, 
+                    offsetY: 80,
+                    autoKill: false 
+                },
+                ease: "power4.inOut",
+                delay: 0.1 // Small delay to ensure layout has settled
             });
         }
     }, [activeCategory]);
@@ -137,22 +142,10 @@ const Section7 = () => {
     return (
         <section ref={sectionRef} className="section7-container">
             <div className="section7-wrapper">
-                {/* Typography Header */}
-                <div className="section7-header section7-reveal">
-                    <span className="section7-subtitle">{t('home.section7.subtitle')}</span>
-                    <h2 className="section7-title">{t('home.section7.title')}</h2>
-                </div>
-
-                {/* Stats Dashboard: Glassmorphic Bar */}
-                <div ref={statsRef} className="section7-stats section7-reveal">
-                    {stats.map((stat) => (
-                        <div key={stat.key} className="section7-stat-item">
-                            <span className="section7-stat-label">{stat.label}</span>
-                            <div className="section7-stat-value">
-                                {formatNumber(counts[stat.key], stat.format)}{stat.suffix}
-                            </div>
-                        </div>
-                    ))}
+                {/* Main Section Header */}
+                <div className="section7-main-header section7-reveal">
+                    <h2 className="business-line-text">Business Line</h2>
+                    <div className="business-line-underline"></div>
                 </div>
 
                 {/* Category Showcase Grid */}
@@ -193,6 +186,24 @@ const Section7 = () => {
                                         <span>{card.cta}</span>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Typography Header */}
+                <div className="section7-header section7-reveal">
+                    <span className="section7-subtitle">{t('home.section7.subtitle')}</span>
+                    <h2 className="section7-title">{t('home.section7.title')}</h2>
+                </div>
+
+                {/* Stats Dashboard: Glassmorphic Bar */}
+                <div ref={statsRef} className="section7-stats section7-reveal">
+                    {stats.map((stat) => (
+                        <div key={stat.key} className="section7-stat-item">
+                            <span className="section7-stat-label">{stat.label}</span>
+                            <div className="section7-stat-value">
+                                {formatNumber(counts[stat.key], stat.format)}{stat.suffix}
                             </div>
                         </div>
                     ))}
