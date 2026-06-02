@@ -92,10 +92,153 @@
     align-items: center;
 }
 
-.iso-stack-wrapper {
+.iso-grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
     position: relative;
-    width: 400px;
-    height: 550px;
+    width: 100%;
+}
+
+.iso-cert-card {
+    position: relative;
+    background: white;
+    border-radius: 15px;
+    padding: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.iso-cert-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 25, 47, 0.85);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 2;
+    color: white;
+}
+
+.iso-cert-overlay span:first-child {
+    font-size: 32px;
+    transform: translateY(10px);
+    transition: transform 0.3s ease;
+}
+
+.iso-cert-overlay span:last-child {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transform: translateY(10px);
+    transition: transform 0.3s ease 0.05s;
+}
+
+.iso-cert-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.iso-cert-card:hover .iso-cert-overlay {
+    opacity: 1;
+}
+
+.iso-cert-card:hover .iso-cert-overlay span {
+    transform: translateY(0);
+}
+
+.iso-cert-card img {
+    width: 100%;
+    height: auto;
+    padding: 25px;
+    background: #f8fafc;
+    max-height: 320px;
+    object-fit: contain;
+    transition: transform 0.6s ease;
+}
+
+.iso-cert-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Modal / Lightbox Styles */
+.iso-modal-root {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.iso-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.iso-modal-content {
+    position: relative;
+    z-index: 10;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.iso-modal-close {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    transition: transform 0.3s ease;
+}
+
+.iso-modal-close:hover {
+    transform: rotate(90deg);
+}
+
+.iso-modal-image-container {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+.iso-modal-image-container img {
+    max-width: 100%;
+    max-height: 75vh;
+    display: block;
+    object-fit: contain;
+}
+
+.iso-modal-caption {
+    margin-top: 25px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
 }
 
 .iso-image-container {
@@ -120,20 +263,33 @@
 }
 
 .iso-image-badge {
-    position: absolute;
-    bottom: -20px;
-    right: -20px;
     background: var(--color-accent);
     color: white;
-    padding: 15px 25px;
+    padding: 12px 24px;
     border-radius: 50px;
     display: flex;
     align-items: center;
-    gap: 10px;
-    box-shadow: var(--shadow-md);
+    gap: 12px;
+    box-shadow: 0 10px 20px rgba(var(--color-accent-rgb), 0.3);
     font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.9rem;
+    cursor: default;
+    transition: transform 0.3s ease;
+}
+
+.iso-image-badge:hover {
+    transform: scale(1.05);
+}
+
+.iso-footer-badge {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    width: 100%;
+    position: relative;
     z-index: 20;
-    pointer-events: none;
 }
 
 .iso-image-badge span:first-child {
@@ -167,9 +323,8 @@
     direction: rtl;
 }
 
-.app-container--rtl .iso-image-badge {
-    right: auto;
-    left: -20px;
+.app-container--rtl .iso-footer-badge {
+    direction: rtl;
 }
 
 @media (max-width: 1200px) {
@@ -196,8 +351,12 @@
     }
     
     .iso-image-right {
-        max-width: 600px;
+        max-width: 800px;
         margin: 0 auto;
+    }
+
+    .iso-grid-wrapper {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -251,5 +410,24 @@
         font-size: 0.9rem;
         right: 0;
         bottom: -10px;
+    }
+
+    .iso-grid-wrapper {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .iso-modal-root {
+        padding: 20px;
+    }
+
+    .iso-modal-image-container {
+        padding: 10px;
+    }
+
+    .iso-modal-caption {
+        font-size: 0.9rem;
+        text-align: center;
     }
 }
