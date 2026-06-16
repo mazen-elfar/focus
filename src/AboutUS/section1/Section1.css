@@ -250,8 +250,8 @@
 }
 
 .text-outline {
-    -webkit-text-stroke: 1px color-mix(in srgb, var(--text-primary) 20%, transparent);
-    color: transparent;
+    color: var(--color-accent);
+    opacity: 0.8;
     font-size: 4.5rem;
     font-weight: 900;
     letter-spacing: -0.05em;

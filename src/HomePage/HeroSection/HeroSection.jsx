@@ -5,11 +5,7 @@ import { useI18n } from "../../i18n/I18nProvider";
 
 const IMAGES = [
   "/heroimg1.png",
-  "/heroimg2.png",
   "/heroimg3.png",
-  "/heroimg4.png",
-  "/heroimg5.png",
-  "/heroimg6.png",
 ];
 
 /* ── tiny stat counter (reused from old design) ── */

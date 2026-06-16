@@ -129,7 +129,7 @@
     right: -20px;
     font-size: 15rem;
     font-weight: 900;
-    color: color-mix(in srgb, var(--color-accent) 5%, transparent);
+    color: color-mix(in srgb, var(--color-accent) 15%, transparent);
     user-select: none;
     pointer-events: none;
     line-height: 1;

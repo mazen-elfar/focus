@@ -12,30 +12,6 @@ const home = {
                 title: 'CONTROL',
                 title2: 'SYSTEMS',
                 description: 'Advanced PLC and SCADA integration for manufacturing plants, ensuring seamless automation, real-time monitoring, and optimized production workflows.'
-            },
-            {
-                place: 'Renewable Energy',
-                title: 'SOLAR',
-                title2: 'INSTALLATIONS',
-                description: 'Large-scale solar power plant design and installation, contributing to sustainable energy generation with cutting-edge photovoltaic technology.'
-            },
-            {
-                place: 'Infrastructure Projects',
-                title: 'ELECTRICAL',
-                title2: 'NETWORKS',
-                description: 'Comprehensive electrical network design for infrastructure projects, from underground cabling to overhead transmission lines and distribution systems.'
-            },
-            {
-                place: 'Energy Solutions',
-                title: 'POWER',
-                title2: 'GENERATION',
-                description: 'Turnkey power generation solutions including gas turbines, diesel generators, and hybrid energy systems for industrial and commercial applications.'
-            },
-            {
-                place: 'Smart Systems',
-                title: 'BUILDING',
-                title2: 'MANAGEMENT',
-                description: 'Intelligent building management systems integrating HVAC, lighting, security, and energy management for modern commercial and industrial facilities.'
             }
         ],
         ctaDiscover: 'Discover Projects',
@@ -195,12 +171,6 @@ const home = {
                 mainImage: '/Power generator.png',
                 cta: 'Explore Energy Solutions'
             },
-            water: {
-                title: 'Water Solution',
-                description: 'Smart water management solutions combining advanced systems and infrastructure for a sustainable future.',
-                mainImage: '/SCADA.JPG',
-                cta: 'Explore Water Solutions'
-            }
         },
         subCards: {
             energy: [
@@ -219,15 +189,6 @@ const home = {
                     learnMore: 'Learn More'
                 }
             ],
-            water: [
-                {
-                    id: 'scada-sys',
-                    title: 'SCADA and Electromagnetic System',
-                    description: 'Expertise in SCADA and electromechanical systems for water infrastructure. We provide integrated control and monitoring solutions that ensure optimal performance and safety for water supply and treatment facilities.',
-                    image: '/SCADA.JPG',
-                    learnMore: 'Learn More'
-                }
-            ]
         },
         cta: 'View Full Portfolio'
     }
