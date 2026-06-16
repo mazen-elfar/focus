@@ -69,25 +69,14 @@ const Navbar = () => {
     useEffect(() => {
         // Initial animation when page loads
         const nav = navRef.current;
-        // Initial state
-        if (location.pathname === '/') {
-            gsap.set(nav, { y: -100, opacity: 0 });
-            setIsVisible(window.scrollY > 50);
-        } else {
-            // Always visible on other pages
-            setIsVisible(true);
-        }
+        // Initial state - Always visible
+        setIsVisible(true);
 
         const trigger = ScrollTrigger.create({
             start: 'top top',
             end: 'max',
-            onUpdate: (self) => {
-                const scrollY = self.scroll();
-                if (location.pathname === '/') {
-                    setIsVisible(scrollY > 50);
-                } else {
-                    setIsVisible(true);
-                }
+            onUpdate: () => {
+                setIsVisible(true);
             }
         });
 
