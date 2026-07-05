@@ -20,7 +20,7 @@ const contact = {
         }
     ],
     hero: {
-        badge: 'فوكاس للتجارة والمقاولات',
+        badge: 'Focus Trading & Contracting',
         titleLine: 'تواصل مع',
         titleHighlight: 'FOCUS T&C',
         subtitle: 'شاركونا تفاصيل مشروعكم، وفريقنا الهندسي سيتواصل معكم بالدعم المناسب.'

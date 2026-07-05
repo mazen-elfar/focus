@@ -1,7 +1,7 @@
 const common = {
     app: {
         titles: {
-            projectsPage: 'فوكاس للتجارة والمقاولات - معرض المشاريع'
+            projectsPage: 'Focus Trading & Contracting - معرض المشاريع'
         }
     },
     common: {
@@ -23,7 +23,7 @@ const common = {
             contact: 'تواصل معنا'
         },
         aboutDropdown: {
-            title: 'عن فوكاس',
+            title: 'عن Focus',
             subtitle: 'تأسست في 2020 ومتخصصة في حلول توليد الطاقة والهندسة الصناعية',
             journey: 'رحلتنا',
             whoWeAre: 'من نحن',
@@ -82,9 +82,9 @@ const common = {
         stamp: {
             line1: 'مُعتمد للمراجعة الرقمية',
             line2: 'رقم المرجع: FT-2024-AC',
-            company: 'فوكاس للتجارة والمقاولات'
+            company: 'Focus Trading & Contracting'
         },
-        copyright: '© 2025 فوكاس للتجارة والمقاولات. جميع الحقوق محفوظة.'
+        copyright: '© 2025 Focus Trading & Contracting. جميع الحقوق محفوظة.'
     }
 };
 

@@ -13,7 +13,7 @@
     align-items: center;
     justify-content: center;
     gap: 48px;
-    z-index: 9999;
+    z-index: 100000;
     font-family: 'Space Grotesk', sans-serif;
     overflow: hidden;
 }

@@ -2,16 +2,16 @@ const home = {
     hero: {
         slides: [
             {
-                place: 'High Voltage Systems',
+                place: 'Reliable Energy Solutions',
                 title: 'POWER',
-                title2: 'SUBSTATIONS',
-                description: 'Engineering and commissioning of high-voltage substations delivering reliable power distribution for industrial and utility networks across the region.'
+                title2: 'GENERATION',
+                description: 'Reliable diesel, hybrid, and twin generator solutions engineered to deliver uninterrupted power for industrial, commercial, and critical infrastructure applications.'
             },
             {
                 place: 'Industrial Automation',
                 title: 'CONTROL',
                 title2: 'SYSTEMS',
-                description: 'Advanced PLC and SCADA integration for manufacturing plants, ensuring seamless automation, real-time monitoring, and optimized production workflows.'
+                description: 'Integrating PLC, SCADA, and HMI solutions for seamless automation, real-time monitoring, intelligent process control, and optimized industrial performance.'
             }
         ],
         ctaDiscover: 'Discover Projects',
@@ -156,41 +156,45 @@ const home = {
         ]
     },
     section7: {
-        subtitle: 'Verified Performance Metrics',
-        title: 'FOCUS T&C at a Glance',
-        stats: [
-            { key: 'projects', value: 500, suffix: '+', label: 'Global Projects' },
-            { key: 'years', value: 6, suffix: '+', label: 'Years Experience' },
-            { key: 'hours', value: 1, suffix: '.2 GW', label: 'Total Power Delivered' },
-            { key: 'partners', value: 99, suffix: '.99%', label: 'Uptime Guarantee' }
-        ],
-        mainCards: {
-            energy: {
-                title: 'Energy Solution',
-                description: 'Integrated energy solutions designed to deliver reliable, efficient, and sustainable power for every need.',
-                mainImage: '/Power generator.png',
-                cta: 'Explore Energy Solutions'
+        badge: 'Our Services',
+        headlineStart: 'Energy Solutions Built',
+        headlineAccent: 'for the Future',
+        headlineSub: 'Integrated power and energy services engineered for reliability, efficiency, and long-term performance.',
+        services: {
+            powerGen: {
+                tag: 'Core Service',
+                title: 'Power Generation',
+                shortDesc: 'Diesel generators, hybrid power systems, parallel solutions, and complete lifecycle support for reliable industrial power.',
+                fullDesc: 'Focus for Trading & Contracting provides complete power generation solutions, delivering end-to-end services from engineering, system design, equipment supply, installation, synchronization, and commissioning to remote monitoring, preventive maintenance, and lifecycle support. Our portfolio includes diesel generators, hybrid power systems, twin generators, lighting towers, and energy storage solutions, ensuring reliable, efficient, and uninterrupted power for industrial and commercial applications.',
+                tags: ['Diesel Generators', 'Synchronization', 'Lifecycle Support']
             },
+            solarEnergy: {
+                tag: 'Green Energy',
+                title: 'Solar Energy',
+                shortDesc: 'Hybrid solar solutions, battery storage, and intelligent energy management for cleaner, more efficient power.',
+                fullDesc: 'Focus delivers advanced hybrid energy solutions that combine solar power, battery storage, and intelligent control systems to maximize efficiency and reliability. Our solutions reduce diesel consumption by up to 60%, optimize energy costs through peak shaving, provide instant backup power, and seamlessly integrate renewable energy with existing power infrastructure for a cleaner and more sustainable future.',
+                tags: ['Photovoltaics', 'Hybrid Systems', 'Energy Storage']
+            }
         },
-        subCards: {
-            energy: [
-                {
-                    id: 'power-gen',
-                    title: 'Power Generation',
-                    description: 'Focus for Trading & Contracting is an integrated service provider and one-stop shop for diesel power generation solutions, delivering complete end-to-end services across the full project lifecycle. From engineering and system design to equipment supply, installation, synchronization, testing, commissioning, operation, and maintenance, we provide seamless solutions tailored to ensure reliable and uninterrupted power for industrial, commercial, and critical infrastructure sectors. With extensive expertise in diesel power generators, generator paralleling and synchronization, electrical integration, automation, and lifecycle support services, we combine technical excellence with operational efficiency to deliver high-performance and dependable power systems. At Focus, we are committed to creating long-term value through quality execution, innovation, and trusted partnerships—powering our clients’ success with confidence and reliability.',
-                    image: '/Power generator.png',
-                    learnMore: 'Learn More'
-                },
-                {
-                    id: 'solar-energy',
-                    title: 'Solar Energy',
-                    description: 'Focus is a leader in innovative solar energy solutions, offering advanced photovoltaic systems and comprehensive energy management. We solar power solutions are designed to maximize efficiency and sustainability for a cleaner future.',
-                    image: '/Solar System.JPG',
-                    learnMore: 'Learn More'
-                }
-            ],
+        buttons: {
+            close: 'Close',
+            explore: 'Explore',
+            viewFullDetails: 'View Full Details'
         },
-        cta: 'View Full Portfolio'
+        stats: {
+            title: 'FOCUS T&C at a Glance',
+            projectsLabel: 'Projects Delivered',
+            yearsLabel: 'Years of Excellence',
+            powerLabel: 'Power Delivered',
+            uptimeLabel: 'Uptime Guarantee'
+        },
+        cta: {
+            eyebrow: 'Ready to Start?',
+            title: "Let's Build the Future Together",
+            sub: 'Talk to our engineering team about your next power project.',
+            btnContact: 'Contact Us',
+            btnServices: 'View All Services'
+        }
     }
 };
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useMemo } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useNavigate } from 'react-router-dom';
@@ -7,54 +7,54 @@ import { useI18n } from '../../i18n/I18nProvider';
 
 gsap.registerPlugin(ScrollTrigger);
 
-/* ── Services data ─────────────────────────────────────────── */
-const SERVICES = [
-    {
-        id: 'power-gen',
-        tag: 'Core Service',
-        title: 'Power Generation',
-        shortDesc: 'Diesel generators, paralleling systems, and full lifecycle support.',
-        fullDesc: 'Focus for Trading & Contracting is an integrated service provider and one-stop shop for diesel power generation solutions, delivering complete end-to-end services from engineering and system design to equipment supply, installation, synchronization, testing, and maintenance.',
-        image: '/Power generator.png',
-        icon: (
-            <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M13 2L3 14h7v8l10-12h-7V2z" />
-            </svg>
-        ),
-        accent: '#06b6d4',
-        tags: ['Diesel Generators', 'Synchronization', 'Lifecycle Support'],
-    },
-    {
-        id: 'solar-energy',
-        tag: 'Green Energy',
-        title: 'Solar Energy',
-        shortDesc: 'Advanced photovoltaic systems and comprehensive energy management.',
-        fullDesc: 'Focus is a leader in innovative solar energy solutions, offering advanced photovoltaic systems, hybrid energy solutions, storage integration, and smart control technologies. Our solar power solutions maximize efficiency and sustainability for a cleaner, smarter future.',
-        image: '/Solar System.JPG',
-        icon: (
-            <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2v-2H2v2zm17 0h2v-2h-2v2zM11 2v2h2V2h-2zm0 17v2h2v-2h-2zM5.22 4.81L3.81 6.22l1.41 1.41 1.41-1.41-1.41-1.41zm14.97 14.97l-1.41-1.41-1.41 1.41 1.41 1.41 1.41-1.41zM18.78 4.81l-1.41 1.41 1.41 1.41 1.41-1.41-1.41-1.41zM5.62 19.78l1.41-1.41-1.41-1.41-1.41 1.41 1.41 1.41z" />
-            </svg>
-        ),
-        accent: '#f59e0b',
-        tags: ['Photovoltaics', 'Hybrid Systems', 'Energy Storage'],
-    },
-];
-
-const STATS = [
-    { value: 500, suffix: '+', label: 'Projects Delivered', icon: '🏗' },
-    { value: 6,   suffix: '+', label: 'Years of Excellence', icon: '🎯' },
-    { value: 1.2, suffix: ' GW', label: 'Power Delivered', icon: '⚡', decimal: true },
-    { value: 99,  suffix: '.99%', label: 'Uptime Guarantee', icon: '🛡' },
-];
-
 /* ═══════════════════════════════════════════════════════════ */
 const Section7 = () => {
-    const { t } = useI18n();
+    const { get, t } = useI18n();
     const navigate = useNavigate();
     const sectionRef = useRef(null);
     const [activeService, setActiveService] = useState(null);
     const [counts, setCounts] = useState({ 0: 0, 1: 0, 2: 0, 3: 0 });
+
+    /* ── Services data ─────────────────────────────────────────── */
+    const SERVICES = useMemo(() => [
+        {
+            id: 'power-gen',
+            tag: t('home.section7.services.powerGen.tag'),
+            title: t('home.section7.services.powerGen.title'),
+            shortDesc: t('home.section7.services.powerGen.shortDesc'),
+            fullDesc: t('home.section7.services.powerGen.fullDesc'),
+            image: '/Power generator.png',
+            icon: (
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M13 2L3 14h7v8l10-12h-7V2z" />
+                </svg>
+            ),
+            accent: '#06b6d4',
+            tags: get('home.section7.services.powerGen.tags') || [],
+        },
+        {
+            id: 'solar-energy',
+            tag: t('home.section7.services.solarEnergy.tag'),
+            title: t('home.section7.services.solarEnergy.title'),
+            shortDesc: t('home.section7.services.solarEnergy.shortDesc'),
+            fullDesc: t('home.section7.services.solarEnergy.fullDesc'),
+            image: '/Solar System.JPG',
+            icon: (
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2v-2H2v2zm17 0h2v-2h-2v2zM11 2v2h2V2h-2zm0 17v2h2v-2h-2zM5.22 4.81L3.81 6.22l1.41 1.41 1.41-1.41-1.41-1.41zm14.97 14.97l-1.41-1.41-1.41 1.41 1.41 1.41 1.41-1.41zM18.78 4.81l-1.41 1.41 1.41 1.41 1.41-1.41-1.41-1.41zM5.62 19.78l1.41-1.41-1.41-1.41-1.41 1.41 1.41 1.41z" />
+                </svg>
+            ),
+            accent: '#f59e0b',
+            tags: get('home.section7.services.solarEnergy.tags') || [],
+        },
+    ], [t, get]);
+
+    const STATS = useMemo(() => [
+        { value: 500, suffix: '+', label: t('home.section7.stats.projectsLabel'), icon: '🏗' },
+        { value: 6,   suffix: '+', label: t('home.section7.stats.yearsLabel'), icon: '🎯' },
+        { value: 1.2, suffix: ' GW', label: t('home.section7.stats.powerLabel'), icon: '⚡', decimal: true },
+        { value: 99,  suffix: '.99%', label: t('home.section7.stats.uptimeLabel'), icon: '🛡' },
+    ], [t]);
 
     /* ── Entrance animations ── */
     useEffect(() => {
@@ -105,7 +105,7 @@ const Section7 = () => {
         }, sectionRef);
 
         return () => ctx.revert();
-    }, []);
+    }, [STATS]);
 
     /* ── Detail panel animation ── */
     useEffect(() => {
@@ -128,13 +128,13 @@ const Section7 = () => {
 
                 {/* ── Header ── */}
                 <div className="s7-header">
-                    <span className="s7-badge">Our Services</span>
+                    <span className="s7-badge">{t('home.section7.badge')}</span>
                     <h2 className="s7-headline">
-                        Energy Solutions Built<br />
-                        <span className="s7-headline-accent">for the Future</span>
+                        {t('home.section7.headlineStart')}<br />
+                        <span className="s7-headline-accent">{t('home.section7.headlineAccent')}</span>
                     </h2>
                     <p className="s7-headline-sub">
-                        Integrated power and energy services engineered for reliability, efficiency, and long-term performance.
+                        {t('home.section7.headlineSub')}
                     </p>
                     <div className="s7-divider" />
                 </div>
@@ -170,7 +170,7 @@ const Section7 = () => {
                                     </div>
 
                                     <button className="s7-card-btn">
-                                        <span>{activeService === i ? 'Close' : 'Explore'}</span>
+                                        <span>{activeService === i ? t('home.section7.buttons.close') : t('home.section7.buttons.explore')}</span>
                                         <svg viewBox="0 0 24 24" fill="currentColor">
                                             <path d={activeService === i
                                                 ? "M19 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H19v-2z"
@@ -198,7 +198,7 @@ const Section7 = () => {
                                 ))}
                             </div>
                             <button className="s7-detail-cta" onClick={() => navigate('/services')}>
-                                View Full Details
+                                {t('home.section7.buttons.viewFullDetails')}
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M16.17 11l-5.59-5.59L12 4l8 8-8 8-1.41-1.41L16.17 13H4v-2h12.17z" />
                                 </svg>
@@ -209,7 +209,7 @@ const Section7 = () => {
 
                 {/* ── Stats Grid ── */}
                 <div className="s7-stats-section">
-                    <div className="s7-stats-label">FOCUS T&amp;C at a Glance</div>
+                    <div className="s7-stats-label">{t('home.section7.stats.title')}</div>
                     <div className="s7-stats-grid">
                         {STATS.map((s, i) => (
                             <div key={i} className="s7-stat-card">
@@ -227,17 +227,17 @@ const Section7 = () => {
                 {/* ── CTA Banner ── */}
                 <div className="s7-cta-banner">
                     <div className="s7-cta-content">
-                        <span className="s7-cta-eyebrow">Ready to Start?</span>
-                        <h3 className="s7-cta-title">Let's Build the Future Together</h3>
-                        <p className="s7-cta-sub">Talk to our engineering team about your next power project.</p>
+                        <span className="s7-cta-eyebrow">{t('home.section7.cta.eyebrow')}</span>
+                        <h3 className="s7-cta-title">{t('home.section7.cta.title')}</h3>
+                        <p className="s7-cta-sub">{t('home.section7.cta.sub')}</p>
                     </div>
                     <div className="s7-cta-actions">
                         <button className="s7-cta-btn s7-cta-btn--primary" onClick={() => navigate('/contact')}>
-                            Contact Us
+                            {t('home.section7.cta.btnContact')}
                             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.17 11l-5.59-5.59L12 4l8 8-8 8-1.41-1.41L16.17 13H4v-2h12.17z" /></svg>
                         </button>
                         <button className="s7-cta-btn s7-cta-btn--ghost" onClick={() => navigate('/services')}>
-                            View All Services
+                            {t('home.section7.cta.btnServices')}
                         </button>
                     </div>
                 </div>
@@ -248,3 +248,4 @@ const Section7 = () => {
 };
 
 export default Section7;
+
