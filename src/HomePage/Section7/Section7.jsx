@@ -23,7 +23,7 @@ const Section7 = () => {
             title: t('home.section7.services.powerGen.title'),
             shortDesc: t('home.section7.services.powerGen.shortDesc'),
             fullDesc: t('home.section7.services.powerGen.fullDesc'),
-            image: '/Power generator.png',
+            image: '/WhatsApp_Image_2026-02-10_at_7.16.13_PM-removebg-preview.png',
             icon: (
                 <svg viewBox="0 0 24 24" fill="currentColor">
                     <path d="M13 2L3 14h7v8l10-12h-7V2z" />
